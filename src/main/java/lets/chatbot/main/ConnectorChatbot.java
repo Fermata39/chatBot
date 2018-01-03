@@ -24,7 +24,6 @@ import java.util.HashMap;
 public class ConnectorChatbot {
 
     public static void main(String[] args) throws Exception {
-        String tokenValue = "xoxb-196719547462-lhlsUMuhTdG39cZU8ZSXcSbw";
         NameValuePair formatParam = new BasicNameValuePair("token", tokenValue);
 
         Response response = Request.Post("https://slack.com/api/rtm.connect")

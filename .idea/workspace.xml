@@ -7,8 +7,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/modules/chatbot_test.iml" afterPath="$PROJECT_DIR$/.idea/modules/chatbot_test.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lets/chatbot/handler/DispatcherHandler.java" afterPath="$PROJECT_DIR$/src/main/java/lets/chatbot/handler/DispatcherHandler.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lets/chatbot/handler/MessageDispatcher.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lets/chatbot/data/MessageData.class" afterPath="$PROJECT_DIR$/out/production/classes/lets/chatbot/data/MessageData.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lets/chatbot/data/ResponseMessage.class" afterPath="$PROJECT_DIR$/out/production/classes/lets/chatbot/data/ResponseMessage.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lets/chatbot/handler/DispatcherHandler.class" afterPath="$PROJECT_DIR$/out/production/classes/lets/chatbot/handler/DispatcherHandler.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lets/chatbot/handler/DustHandler.class" afterPath="$PROJECT_DIR$/out/production/classes/lets/chatbot/handler/DustHandler.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lets/chatbot/handler/MessageDispatcher.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lets/chatbot/handler/MessageHandler.class" afterPath="$PROJECT_DIR$/out/production/classes/lets/chatbot/handler/MessageHandler.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lets/chatbot/main/ConnectorChatbot.class" afterPath="$PROJECT_DIR$/out/production/classes/lets/chatbot/main/ConnectorChatbot.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lets/chatbot/vo/RequestMessage.class" afterPath="$PROJECT_DIR$/out/production/classes/lets/chatbot/vo/RequestMessage.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lets/chatbot/vo/ResponseMessage.class" afterPath="$PROJECT_DIR$/out/production/classes/lets/chatbot/vo/ResponseMessage.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/lets/chatbot/websocket/SlackMessageHandler.class" afterPath="$PROJECT_DIR$/out/production/classes/lets/chatbot/websocket/SlackMessageHandler.class" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lets/chatbot/handler/MessageDispatcher.java" afterPath="$PROJECT_DIR$/src/main/java/lets/chatbot/handler/DispatcherHandler.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lets/chatbot/main/ConnectorChatbot.java" afterPath="$PROJECT_DIR$/src/main/java/lets/chatbot/main/ConnectorChatbot.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lets/chatbot/websocket/SlackMessageHandler.java" afterPath="$PROJECT_DIR$/src/main/java/lets/chatbot/websocket/SlackMessageHandler.java" />
     </list>
@@ -62,8 +71,8 @@
       <file leaf-file-name="ConnectorChatbot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/lets/chatbot/main/ConnectorChatbot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="39" column="60" lean-forward="false" selection-start-line="39" selection-start-column="60" selection-end-line="39" selection-end-column="60" />
+            <state relative-caret-position="95">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -720,12 +729,12 @@
       <option name="presentableId" value="Default" />
       <updated>1514982030511</updated>
       <workItem from="1514982031874" duration="370000" />
-      <workItem from="1514982406111" duration="1585000" />
+      <workItem from="1514982406111" duration="1618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1955000" />
+    <option name="totallyTimeSpent" value="1988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
@@ -739,7 +748,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32991204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32991204" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -884,8 +893,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lets/chatbot/main/ConnectorChatbot.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="39" column="60" lean-forward="false" selection-start-line="39" selection-start-column="60" selection-end-line="39" selection-end-column="60" />
+        <state relative-caret-position="95">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
