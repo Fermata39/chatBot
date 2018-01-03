@@ -7,7 +7,7 @@ import java.util.HashMap;
  */
 public class DispatcherHandler {
 
-    HashMap<String, MessageHandler> handleMap = new HashMap<>();
+    HashMap<String, MessageHandler> handleMap = new HashMap<String, MessageHandler>();
 
     public void addHandler(String key, MessageHandler handler) {
 

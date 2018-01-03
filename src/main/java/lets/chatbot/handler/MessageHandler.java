@@ -1,10 +1,9 @@
 package lets.chatbot.handler;
 
-import lets.chatbot.data.*;
+import lets.chatbot.vo.RequestMessage;
+import lets.chatbot.vo.ResponseMessage;
 
-/**
- * Created by shinkook.kim on 2017-06-13.
- */
 public interface MessageHandler {
-    public ResponseMessage handler(MessageData message);
+    ResponseMessage handle(RequestMessage resp);
 }
+
