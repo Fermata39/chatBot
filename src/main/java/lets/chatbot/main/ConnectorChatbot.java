@@ -1,8 +1,8 @@
 package lets.chatbot.main;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lets.chatbot.handler.DispatcherHandler;
 import lets.chatbot.handler.DustHandler;
-import lets.chatbot.handler.MessageDispatcher;
 import lets.chatbot.websocket.SlackMessageHandler;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.fluent.Request;
@@ -37,7 +37,7 @@ public class ConnectorChatbot {
         String url = (String) returnValue.get("url");
 
 
-        MessageDispatcher dispatcher = new MessageDispatcher();
+        DispatcherHandler dispatcher = new DispatcherHandler();
         dispatcher.addHandler("먼지", new DustHandler());
 
         System.out.println("[ksk] url: " + url);
