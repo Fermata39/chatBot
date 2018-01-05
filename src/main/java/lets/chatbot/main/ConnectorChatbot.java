@@ -3,7 +3,7 @@ package lets.chatbot.main;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lets.chatbot.handler.DispatcherHandler;
 import lets.chatbot.handler.DustHandler;
-import lets.chatbot.websocket.SlackMessageHandler;
+import lets.chatbot.handler.SlackMessageHandler;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.fluent.Response;
@@ -15,6 +15,7 @@ import org.springframework.web.socket.client.WebSocketConnectionManager;
 import org.springframework.web.socket.client.jetty.JettyWebSocketClient;
 import org.springframework.web.socket.handler.ExceptionWebSocketHandlerDecorator;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -24,24 +25,21 @@ import java.util.HashMap;
 public class ConnectorChatbot {
 
     public static void main(String[] args) throws Exception {
-        NameValuePair formatParam = new BasicNameValuePair("token", tokenValue);
 
-        Response response = Request.Post("https://slack.com/api/rtm.connect")
-                .setHeader("Content-Type", "application/x-www-form-urlencoded")
-                .bodyForm(formatParam)
-                .execute();
-
-        ObjectMapper om = new ObjectMapper();
-        HashMap returnValue = om.readValue(response.returnContent().asBytes(), HashMap.class);
-        String url = (String) returnValue.get("url");
-
+        Response response = null;
 
         DispatcherHandler dispatcher = new DispatcherHandler();
         dispatcher.addHandler("먼지", new DustHandler());
 
+        String url = getUrl(response);
         System.out.println("[ksk] url: " + url);
 
-        //webSocketClient 를 통해 보안으로 client 를 생성
+        WebSocketConnectionManager connectionManager = getConnectionManager(dispatcher, url);
+        connectionManager.start();
+    }
+
+    private static WebSocketConnectionManager getConnectionManager(DispatcherHandler dispatcher, String url) {
+
         SslContextFactory sslContextFactory = new SslContextFactory();
         sslContextFactory.setTrustAll(true);
         org.eclipse.jetty.websocket.client.WebSocketClient webSocketClient = new org.eclipse.jetty.websocket.client.WebSocketClient(
@@ -49,7 +47,22 @@ public class ConnectorChatbot {
         WebSocketClient client = new JettyWebSocketClient(webSocketClient);
         WebSocketHandler handler = new SlackMessageHandler(dispatcher);
 
-        WebSocketConnectionManager connectionManager = new WebSocketConnectionManager(client,new ExceptionWebSocketHandlerDecorator(handler),url);
-        connectionManager.start();
+        return new WebSocketConnectionManager(client, new ExceptionWebSocketHandlerDecorator(handler), url);
+
     }
+
+    private static String getUrl(Response response) throws IOException {
+        NameValuePair formatParam = new BasicNameValuePair("token", tokenValue);
+
+        response = Request.Post("https://slack.com/api/rtm.connect")
+                .setHeader("Content-Type", "application/x-www-form-urlencoded")
+                .bodyForm(formatParam)
+                .execute();
+
+        ObjectMapper om = new ObjectMapper();
+        HashMap returnValue = om.readValue(response.returnContent().asBytes(), HashMap.class);
+        return (String) returnValue.get("url");
+    }
+
+
 }

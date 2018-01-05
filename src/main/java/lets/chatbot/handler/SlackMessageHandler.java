@@ -1,17 +1,15 @@
-package lets.chatbot.websocket;
+package lets.chatbot.handler;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lets.chatbot.handler.DispatcherHandler;
 import lets.chatbot.vo.RequestMessage;
 import lets.chatbot.vo.ResponseMessage;
 import org.springframework.web.socket.*;
 
 public class SlackMessageHandler implements WebSocketHandler {
-    //    public SlackMessageHandler(Object p0) {
-//    }
-    ObjectMapper mapper;
-    DispatcherHandler dispatcher;
+
+    private final ObjectMapper mapper;
+    private final DispatcherHandler dispatcher;
 
     public SlackMessageHandler(DispatcherHandler messageDispatcher) {
         this.dispatcher = messageDispatcher;
@@ -21,13 +19,13 @@ public class SlackMessageHandler implements WebSocketHandler {
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
+    @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         System.out.println("afterConnectionEstablished");
     }
 
+    @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> webSocketMessage) throws Exception {
-
-
         try {
             String payload = webSocketMessage.getPayload().toString();
             System.out.println("Bot message: " + payload);
@@ -35,23 +33,28 @@ public class SlackMessageHandler implements WebSocketHandler {
 
             if (requestMessage.ofType("message")) {
                 ResponseMessage response = dispatcher.getHandler(requestMessage);
-                System.out.println("[ksk] " + response.getText());
+                System.out.println("[ksk] response: " + response.getText());
                 session.sendMessage(new TextMessage(mapper.writeValueAsString(response)));
             }
-        } catch (Exception e) {
-            System.out.println("[ksk] Exception: " + e.toString());
+        } catch (Exception ignored) {
+            System.out.println("[ksk] Exception: " + ignored.toString());
         }
     }
 
+    @Override
     public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
-        System.out.println("Exception: " + exception);
+        System.out.println("Transport Error : " + exception);
+
     }
 
-    public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception {
-        System.out.println("afterConnectionClosed: ");
+    @Override
+    public void afterConnectionClosed(
+            WebSocketSession session, CloseStatus closeStatus) throws Exception {
+
     }
 
+    @Override
     public boolean supportsPartialMessages() {
-        return false;
+        return true;
     }
 }
